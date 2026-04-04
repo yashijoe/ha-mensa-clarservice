@@ -1,0 +1,12 @@
+{
+  "domain": "mensa_clarservice",
+  "name": "Mensa ClarService",
+  "codeowners": ["@yashijoe"],
+  "config_flow": true,
+  "documentation": "https://github.com/yashijoe/ha-mensa-clarservice",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/yashijoe/ha-mensa-clarservice/issues",
+  "requirements": [],
+  "version": "1.0.0",
+  "integration_type": "service"
+}
