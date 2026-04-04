@@ -5,7 +5,7 @@
         "title": "Connetti a Mensa ClarService",
         "description": "Inserisci le credenziali del tuo account ClarService.",
         "data": {
-          "username": "Email",
+          "username": "Nome utente",
           "password": "Password",
           "scan_interval": "Intervallo di aggiornamento (minuti)"
         }
