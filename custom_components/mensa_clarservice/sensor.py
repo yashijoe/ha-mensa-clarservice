@@ -32,8 +32,8 @@ async def async_setup_entry(
             MensaSensor(coordinator, entry, "oggi", piatto, 0)
         )
 
-    # Sensori prossimi 4 giorni lavorativi
-    for offset in range(1, 5):
+    # Sensori prossimi 5 giorni lavorativi
+    for offset in range(1, 6):
         for piatto in PIATTI:
             entities.append(
                 MensaSensor(coordinator, entry, f"plus{offset}", piatto, offset)

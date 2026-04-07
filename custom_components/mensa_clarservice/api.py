@@ -151,9 +151,9 @@ class MensaClient:
             raise MensaApiError(f"Errore recupero menu: {err}") from err
 
     async def fetch_all_data(self) -> dict[str, list[str]]:
-        """Recupera menu di oggi e dei prossimi 4 giorni lavorativi."""
+        """Recupera menu di oggi e dei prossimi 5 giorni lavorativi."""
         oggi = date.today()
-        giorni_futuri = prossimi_giorni_lavorativi(oggi, 4)
+        giorni_futuri = prossimi_giorni_lavorativi(oggi, 5)
 
         async with aiohttp.ClientSession() as session:
             await self._login(session)
