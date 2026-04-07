@@ -8,7 +8,7 @@ Integrazione custom per Home Assistant che recupera il menu della mensa dal port
 ## Funzionalità
 
 - **Menu del giorno** — primo, secondo e contorno ordinati per oggi
-- **Menu dei prossimi 4 giorni lavorativi** — con nomi dinamici (domani, lunedì, martedì, ecc.)
+- **Menu dei prossimi 5 giorni lavorativi** — con nomi dinamici (domani, lunedì, martedì, ecc.)
 - **Gestione festività italiane** — salta automaticamente weekend e festivi (inclusa Pasquetta)
 - **Aggiornamento configurabile** — intervallo di polling personalizzabile (default: 30 minuti)
 - **Configurazione da UI** — nessun YAML necessario
@@ -68,6 +68,7 @@ Vai su **Impostazioni** → **Dispositivi e servizi** → **Mensa ClarService** 
 | `sensor.mensa_plus2_primo` | Primo martedì | |
 | `sensor.mensa_plus3_primo` | Primo mercoledì | |
 | `sensor.mensa_plus4_primo` | Primo giovedì | |
+| `sensor.mensa_plus5_primo` | Primo venerdì | |
 
 Lo stesso pattern si applica a `_secondo` e `_contorno`.
 
