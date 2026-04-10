@@ -79,8 +79,10 @@ def _parse_piatti(html: str) -> list[str]:
 
     piatti = []
     for campo in righe:
-        campo = re.sub("<[^>]*>", "", campo).strip()
-        parti = campo.split("|")
+        # Prendi solo la prima riga (prima del <br>)
+        prima_riga = re.split(r"<br", campo, maxsplit=1)[0]
+        prima_riga = re.sub("<[^>]*>", "", prima_riga).strip()
+        parti = prima_riga.split("|")
         if len(parti) >= 2:
             codice = parti[0].strip()
             nome = parti[1].strip().lstrip("*")
