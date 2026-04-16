@@ -79,6 +79,8 @@ def _parse_piatti(html: str) -> list[dict]:
 
     piatti = []
     for campo in righe:
+        # Rimuovi badge (es. "Portata leggera")
+        campo = re.sub(r'<span[^>]*class="[^"]*badge[^"]*"[^>]*>.*?</span>', '', campo, flags=re.DOTALL)
         # Prendi solo la prima riga (prima del <br>)
         prima_riga = re.split(r"<br", campo, maxsplit=1)[0]
         prima_riga = re.sub("<[^>]*>", "", prima_riga).strip()

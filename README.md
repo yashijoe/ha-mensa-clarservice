@@ -84,7 +84,7 @@ Ogni sensore include:
 
 ### Stato
 
-- Il nome del piatto (es. `PASTICCIO DI POLENTA`)
+- Il nome del piatto (es. `COUS COUS ALLE VERDURE`)
 - `Nessun piatto` — se non ci sono ordinazioni per quel giorno
 
 ## Dashboard (esempio)
