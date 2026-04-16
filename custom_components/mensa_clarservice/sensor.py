@@ -102,7 +102,7 @@ class MensaSensor(CoordinatorEntity, SensorEntity):
         day_data = self.coordinator.data.get(self._data_key, {})
         piatti = day_data.get("piatti", [])
         if self._piatto_index < len(piatti):
-            return piatti[self._piatto_index]
+            return piatti[self._piatto_index]["nome"]
         return "Nessun piatto"
 
     @property
@@ -113,6 +113,12 @@ class MensaSensor(CoordinatorEntity, SensorEntity):
         if target:
             attrs["data"] = target.isoformat()
             attrs["giorno"] = GIORNI_SETTIMANA.get(target.weekday(), "")
+
+        day_data = self.coordinator.data.get(self._data_key, {})
+        piatti = day_data.get("piatti", [])
+        if self._piatto_index < len(piatti):
+            attrs["codice_piatto"] = piatti[self._piatto_index]["codice"]
+
         return attrs
 
     @property

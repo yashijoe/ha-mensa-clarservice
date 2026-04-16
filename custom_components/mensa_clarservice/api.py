@@ -66,7 +66,7 @@ def prossimi_giorni_lavorativi(da: date, quanti: int) -> list[date]:
     return risultato
 
 
-def _parse_piatti(html: str) -> list[str]:
+def _parse_piatti(html: str) -> list[dict]:
     """Estrai i piatti dall'HTML."""
     if "Non ci sono ordinazioni" in html:
         return []
@@ -86,7 +86,7 @@ def _parse_piatti(html: str) -> list[str]:
         if len(parti) >= 2:
             codice = parti[0].strip()
             nome = parti[1].strip().lstrip("*")
-            piatti.append(f"{nome} ({codice})")
+            piatti.append({"nome": nome, "codice": codice})
 
     return piatti
 
@@ -131,13 +131,13 @@ class MensaClient:
         except aiohttp.ClientError as err:
             raise MensaApiError(f"Errore di connessione: {err}") from err
 
-    async def fetch_menu(self, giorno: date) -> list[str]:
+    async def fetch_menu(self, giorno: date) -> list[dict]:
         """Recupera il menu per un giorno specifico."""
         async with aiohttp.ClientSession() as session:
             await self._login(session)
             return await self._get_ordini(session, giorno)
 
-    async def _get_ordini(self, session: aiohttp.ClientSession, giorno: date) -> list[str]:
+    async def _get_ordini(self, session: aiohttp.ClientSession, giorno: date) -> list[dict]:
         """Recupera gli ordini per una data."""
         data_str = giorno.strftime("%Y-%m-%d")
         url = f"{BASE_URL}?azione=visualizzaOrdiniGiorno&data_ordinazione={data_str}"
@@ -152,7 +152,7 @@ class MensaClient:
         except aiohttp.ClientError as err:
             raise MensaApiError(f"Errore recupero menu: {err}") from err
 
-    async def fetch_all_data(self) -> dict[str, list[str]]:
+    async def fetch_all_data(self) -> dict[str, list[dict]]:
         """Recupera menu di oggi e dei prossimi 5 giorni lavorativi."""
         oggi = date.today()
         giorni_futuri = prossimi_giorni_lavorativi(oggi, 5)

@@ -80,10 +80,11 @@ Ogni sensore include:
 
 - `data` — data del giorno in formato ISO (es. `2026-04-07`)
 - `giorno` — nome del giorno della settimana (es. `lunedì`)
+- `codice_piatto` — codice numerico del piatto (es. `3`)
 
 ### Stato
 
-- Il nome del piatto con codice (es. `PASTICCIO DI POLENTA (3)`)
+- Il nome del piatto (es. `PASTICCIO DI POLENTA`)
 - `Nessun piatto` — se non ci sono ordinazioni per quel giorno
 
 ## Dashboard (esempio)
