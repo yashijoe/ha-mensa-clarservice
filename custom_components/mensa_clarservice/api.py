@@ -87,7 +87,7 @@ def _parse_piatti(html: str) -> list[dict]:
         parti = prima_riga.split("|")
         if len(parti) >= 2:
             codice = parti[0].strip()
-            nome = parti[1].strip().lstrip("*")
+            nome = parti[1].strip().lstrip("*").rstrip("=").strip()
             piatti.append({"nome": nome, "codice": codice})
 
     return piatti
